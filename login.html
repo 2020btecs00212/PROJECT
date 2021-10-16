@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="login-form">
+		<img src="user.jpeg" class="avatar" alt="" width="80px" height="80px">
+		<h2>Login Form</h2>
+		<form method="post">
+			<p>User ID:</p>
+			<input type="text" name='userid' placeholder ="Enter UserName">
+			<p>Password</p>
+			<input type="password" name='pass' placeholder="Enter Password">
+			<input type=button onClick="parent.location='monthwiseinfo.html'" style="background-color:violet; width:300px;
+height:40px" name='sigin' value='sign in'>
+			<input type=button onClick="parent.location='register.html'" style="background-color:violet; width:300px;
+height:40px"  name ='userreg' value='Not a user?'>
+		</form>
+	</div>
+</body>
+</html>
+
+<?php>
+mysql_connect("localhost","root","")or die(mysql_error());
+mysql_select_db("user")or die(mysql_error()));
+
+if(isset($_POST['sigin']))
+{
+echo $name=$_POST['userid'];
+}
+?>
+
+

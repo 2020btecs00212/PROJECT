@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+	<script src="validation.js"></script>	
+</head>
+
+<style>
+
+	.tooltip 
+	{
+	  position: relative;
+	  display: inline-block;
+	}
+
+	.tooltip .tooltiptext 
+	{
+	  visibility: hidden;
+	  width: 300px;
+	  background-color: #555;
+	  color: #fff;
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 5px 0;
+	  position: absolute;
+	  z-index: 1;
+	  bottom: 125%;
+	  left: 50%;
+	  margin-left: -60px;
+	  opacity: 0;
+	  transition: opacity 0.3s;
+	}
+
+	.tooltip .tooltiptext::after 
+	{
+	  content: "";
+	  position: absolute;
+	  top: 100%;
+	  left: 50%;
+	  margin-left: -5px;
+	  border-width: 5px;
+	  border-style: solid;
+	  border-color: #555 transparent transparent transparent;
+	}
+
+	.tooltip:hover .tooltiptext 
+	{
+	  visibility: visible;
+	  opacity: 1;
+	}
+
+	#pop 
+	{
+		width: 500px;
+		height: 300px;
+		border: 2px solid gray;
+		bottom: 50%;
+		left: 7%;
+		top: 25%;
+		position: fixed;
+		border-radius: 15px;
+			
+	}
+
+	#close 
+	{
+		right: 5;
+		top: 5;
+		float: right;
+		height: 20px;
+	}
+
+	a 
+	{
+		text-decoration: none;
+		font-size: 28px;
+	}
+
+</style>
+<body background="background.jpg" width="100%">
+
+<table border="0" width="100%" bgcolor="#2874F0">
+	<tr>
+		<td align="right"><img src="flipkart.jpeg" height="30"></td>
+		<td><input type="text" placeholder="Search for products"></td>
+		<th><font color="white">More</font></th>
+		<th><img src="cart.png" height="30"></th>
+	</tr>
+</table>
+<form name="myform" method="post" action="connect.php" autocomplete="off" style="margin-left: 10px;margin-top: 40px;margin-top:100px;margin-left: 500px">
+		<fieldset style="width: 50%;">
+			<legend style="font-size: 30px"><strong><center>Registration Form</center></strong></legend>
+				<br>
+				<br>
+				<b style="">First Name</b><label style="margin-left: 83px">:</label><input style="margin-left: 28px;" type="text" name="fname" id="fname" placeholder="First Name" required>
+				<br><br>
+
+				<div id="errormsg"></div>
+				<b style="">Last Name</b><label style="margin-left: 85px">:</label><input style="margin-left: 29px;" type="text" name="lname" id="lname" placeholder="Last Name" required>
+				<br><br>
+
+				<div id="lerror"></div>
+				<b style="">Age</b><label style="margin-left: 133px">:</label><input style="margin-left: 29px" type="Number" name="age" id="age" min="1" max="99">&nbsp&nbspYears
+				<br><br>
+
+				<div id="age_error"></div>
+				<b style="">Sex</b><label style="margin-left: 135px">:</label>
+				<input type="radio" name="gender" style="margin-left:28px" required><label style="color: black">Male</label> &nbsp&nbsp
+				<input type="radio" name="gender" style="color: black;"><label style="color: black">Female</label> &nbsp&nbsp
+				<input type="radio" name="gender" style="color: black;"><label style="color: black">Other</label> &nbsp&nbsp
+				<br><br>
+
+				<b style="">Contact Number</b><label style="margin-left: 43px">:</label><input style="margin-left: 30px;" type="text" name="mb" id="mb" placeholder="XXX-XXX-XXX-X" maxlength="10" required>
+				<br><br>
+
+				<div id="contact_error"></div>
+				<b style="">Email</b><label style="margin-left: 118px">:</label><input style="margin-left: 29px;" type="text" name="email" id="email" placeholder="Email Address" required>
+				<br><br>
+
+				<div id="emailerror"></div>
+				<b style="">Password</b><label style="margin-left: 93px">:</label>
+				<div class="tooltip"><input style="margin-left: 29px;" type="Password" name="password" id="psw" placeholder="Enter Password" required>
+  				<span class="tooltiptext">Password must be at least 8 characters long! and contains at least one special character and digit</span>
+				</div>
+				<div id="passerror"></div>
+				<br>
+
+				<b style="">Confirm Password</b><label style="margin-left: 30px">:</label><input style="margin-left: 30px;" type="Password" name="cpsw" id="cpass" placeholder="Re Enter Password" required>
+				<div id="cpasserror"></div>  
+			    <br>
+
+				<b style="">Qualification</b><label style="margin-left: 70px">:</label>
+				<input type="checkbox" name="SSC" style="margin-left: 25px">SSC &nbsp&nbsp 
+				<input type="checkbox" name="HSC">HSC &nbsp&nbsp 
+				<input type="checkbox" name="Diploma">Diploma <br><br>
+				<input type="checkbox" name="Bachelor's" style="margin-left: 193px">Bachelor's &nbsp&nbsp 
+				<input type="checkbox" name="Master's">Master's &nbsp&nbsp 
+				<br><br><br>
+
+				<center><input type="submit" name="Submit" value="submit" style="background-color: green;color: white; width: 130px;height: 32px">
+				<input type="reset" name="Reset" style="background-color: orange;color: white; width: 130px;height: 32px;"></center>
+				<br>
+		</fieldset>
+</form>
+<br>
+</body>
+</html>
